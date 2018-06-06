@@ -21,7 +21,7 @@ const prefix = 'https://drive.google.com/drive/u/0/folders/';
 const firebase = require('firebase-admin');
 firebase.initializeApp({
   credential: firebase.credential.cert(service),
-  databaseURL: `https://${config.cloud.project_id}.firebaseio.com`
+  databaseURL: `https://${config.cloud.project}.firebaseio.com`
 });
 
 // Lazy globals
