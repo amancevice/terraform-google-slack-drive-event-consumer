@@ -3,7 +3,7 @@ provider "archive" {
 }
 
 locals {
-  version = "0.0.2"
+  version = "0.0.3"
 }
 
 // Event Consumer archive
@@ -40,7 +40,7 @@ resource "google_storage_bucket_object" "archive" {
 }
 
 // Event Consumer Cloud Function
-resource "google_cloudfunctions_function" "event_consumer" {
+resource "google_cloudfunctions_function" "function" {
   name                  = "${var.function_name}"
   description           = "Slack event consumer"
   available_memory_mb   = "${var.memory}"
