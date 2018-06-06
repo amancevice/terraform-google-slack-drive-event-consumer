@@ -24,11 +24,6 @@ variable "web_api_token" {
 /**
  * Optional Variables
  */
-variable "app" {
-  description = "Custom app config file."
-  default     = "app.json"
-}
-
 variable "bucket_prefix" {
   description = "Prefix for Cloud Storage bucket."
   default     = ""
