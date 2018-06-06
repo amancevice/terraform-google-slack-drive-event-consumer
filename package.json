@@ -1,6 +1,6 @@
 {
   "name": "slack-drive-event-consumer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Consume Slack events from Pub/Sub",
   "main": "index.js",
   "dependencies": {
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amancevice/terraform-google-slack-event-publisher.git"
+    "url": "git+https://github.com/amancevice/terraform-google-slack-drive-event-consumer.git"
   },
   "keywords": [
     "Slack",
@@ -24,7 +24,7 @@
   "author": "smallweirdnumber",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amancevice/terraform-google-slack-event-publisher/issues"
+    "url": "https://github.com/amancevice/terraform-google-slack-drive-event-consumer/issues"
   },
-  "homepage": "https://github.com/amancevice/terraform-google-slack-event-publisher"
+  "homepage": "https://github.com/amancevice/terraform-google-slack-drive-event-consumer"
 }
