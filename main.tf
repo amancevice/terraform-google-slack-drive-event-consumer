@@ -2,13 +2,39 @@ provider "archive" {
   version = "~> 1.0"
 }
 
+provider "template" {
+  version = "~> 1.0"
+}
+
 locals {
   version = "0.0.6"
+}
+
+data "template_file" "config" {
+  template = "${file("${path.module}/src/config.tpl")}"
+
+  vars {
+    channel       = "${var.channel}"
+    color         = "${var.color}"
+    project       = "${var.project}"
+    slash_command = "${var.slash_command}"
+    web_api_token = "${var.web_api_token}"
+  }
 }
 
 data "archive_file" "archive" {
   type        = "zip"
   output_path = "${path.module}/dist/${var.function_name}-${local.version}.zip"
+
+  source {
+    content  = "${var.client_secret}"
+    filename = "client_secret.json"
+  }
+
+  source {
+    content  = "${data.template_file.config.rendered}"
+    filename = "config.json"
+  }
 
   source {
     content  = "${file("${path.module}/src/index.js")}"
@@ -21,13 +47,8 @@ data "archive_file" "archive" {
   }
 
   source {
-    content  = "${file("${var.config}")}"
-    filename = "config.json"
-  }
-
-  source {
-    content  = "${file("${var.client_secret}")}"
-    filename = "client_secret.json"
+    content  = "${jsonencode("${var.users}")}"
+    filename = "users.json"
   }
 }
 

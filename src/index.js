@@ -1,6 +1,7 @@
 // App
 const config = require('./config.json');
 const messages = require('./messages.json');
+const users = require('./users.json');
 
 // Slack
 const { WebClient } = require('@slack/client');
@@ -91,9 +92,9 @@ function userEvent(e) {
  * @param {object} e.event Slack event object.
  */
 function userPermitted(e) {
-  return config.slack.users.excluded.indexOf(e.event.user) < 0 && // *not* excluded
-        (config.slack.users.included.length === 0 ||              // no includes
-         config.slack.users.included.indexOf(e.event.user) >= 0); // explicit include
+  return users.excluded.indexOf(e.event.user) < 0 && // *not* excluded
+        (users.included.length === 0 ||              // no includes
+         users.included.indexOf(e.event.user) >= 0); // explicit include
 }
 
 /**
