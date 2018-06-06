@@ -3,7 +3,7 @@ provider "archive" {
 }
 
 locals {
-  version = "0.0.4"
+  version = "0.0.5"
 }
 
 // Event Consumer archive
@@ -44,7 +44,7 @@ resource "google_cloudfunctions_function" "function" {
   name                  = "${var.function_name}"
   description           = "Slack Drive event consumer"
   available_memory_mb   = "${var.memory}"
-  source_archive_bucket = "${google_storage_bucket.slack_drive_bucket.name}"
+  source_archive_bucket = "${var.bucket_name}"
   source_archive_object = "${google_storage_bucket_object.archive.name}"
   trigger_topic         = "${var.pubsub_topic}"
   timeout               = "${var.timeout}"
