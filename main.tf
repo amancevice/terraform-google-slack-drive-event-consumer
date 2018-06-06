@@ -7,7 +7,7 @@ provider "template" {
 }
 
 locals {
-  version = "0.0.6"
+  version = "0.0.7"
 }
 
 data "template_file" "config" {
@@ -39,6 +39,11 @@ data "archive_file" "archive" {
   source {
     content  = "${file("${path.module}/src/index.js")}"
     filename = "index.js"
+  }
+
+  source {
+    content  = "${file("${path.module}/src/messages.json")}"
+    filename = "messages.json"
   }
 
   source {
