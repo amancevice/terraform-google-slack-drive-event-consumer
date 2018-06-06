@@ -6,7 +6,6 @@ locals {
   version = "0.0.6"
 }
 
-// Event Consumer archive
 data "archive_file" "archive" {
   type        = "zip"
   output_path = "${path.module}/dist/${var.function_name}-${local.version}.zip"
@@ -32,14 +31,12 @@ data "archive_file" "archive" {
   }
 }
 
-// Event Consumer Cloud Storage archive
 resource "google_storage_bucket_object" "archive" {
   bucket = "${var.bucket_name}"
   name   = "${var.bucket_prefix}${var.function_name}-${local.version}.zip"
   source = "${data.archive_file.archive.output_path}"
 }
 
-// Event Consumer Cloud Function
 resource "google_cloudfunctions_function" "function" {
   name                  = "${var.function_name}"
   description           = "Slack Drive event consumer"
