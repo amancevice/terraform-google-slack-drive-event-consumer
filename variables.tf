@@ -43,11 +43,6 @@ variable "region" {
   default     = "us-central1"
 }
 
-variable "slash_command" {
-  description = "Name of slash command in Slack"
-  default     = "drive"
-}
-
 variable "timeout" {
   description = "Timeout in seconds for Slack event listener."
   default     = 60
