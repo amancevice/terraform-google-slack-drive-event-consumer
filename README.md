@@ -18,7 +18,7 @@ bucket_name = "<cloud-storage-bucket-name>"
 project     = "<cloud-project-id>"
 ```
 
-Then, create a [`terraform.tf`](./src/terraform.tf) file with the following contents (filling in the module version):
+Then, create a `terraform.tf` file with the following contents (filling in the module version):
 
 ```terraform
 provider "google" {
