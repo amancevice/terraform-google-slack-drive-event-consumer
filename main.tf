@@ -3,7 +3,7 @@ provider "archive" {
 }
 
 locals {
-  version = "0.0.1"
+  version = "0.0.2"
 }
 
 // Event Consumer archive
@@ -12,7 +12,7 @@ data "archive_file" "archive" {
   output_path = "${path.module}/dist/${var.function_name}-${local.version}.zip"
 
   source {
-    content  = "${file("${path.module}/index.js")}"
+    content  = "${file("${path.module}/src/index.js")}"
     filename = "index.js"
   }
 
